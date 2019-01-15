@@ -1,0 +1,42 @@
+{{!-- This is the base layout for your project, and will be used on every page unless specified. --}}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="{{root}}assets/css/app.css">
+</head>
+
+<body>
+
+  {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas position-right" id="offCanvas" data-off-canvas data-content-scroll=false>
+      {{> offcanvas}}
+    </div>
+    <div class="off-canvas-content" data-off-canvas-content>
+      {{> header}}
+
+      <main>
+        {{> body}}
+      </main>
+
+      {{> footer}}
+    </div>
+  </div>
+
+  {{> svg-sprite}}
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/brands.js" integrity="sha384-G/XjSSGjG98ANkPn82CYar6ZFqo7iCeZwVZIbNWhAmvCF2l+9b5S21K4udM7TGNu"
+    crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+    crossorigin="anonymous"></script>
+
+  <script src="{{root}}assets/js/app.js"></script>
+</body>
+
+</html>
