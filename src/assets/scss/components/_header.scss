@@ -1,0 +1,47 @@
+.ba-main-menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    &__link{
+        color: #170706;
+        padding: 0 10px;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: Roboto;
+    }
+}
+
+.ba-main-menu li + li {
+    margin-left: 20px;
+}
+
+.ba-right-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    & svg {
+        margin-right: 10px;
+    }
+}
+
+.header-button {
+    font-size: 14px;
+    border-radius: 5px; 
+    white-space: nowrap;
+}
+
+.ba-search-form {
+    display: flex;
+    align-items: center;
+    &__input {
+        border: none;
+        margin: 0;
+        outline: none;
+        border-bottom: 1px solid #EBF1CD;
+        &:focus{
+            border: none;
+            border-bottom: 1px solid #EBF1CD;
+        }
+    }
+}
+
