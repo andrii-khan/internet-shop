@@ -12941,14 +12941,79 @@ window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a; // require('found
 
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).foundation();
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('').slick({
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.featured-slider').slick({
   arrows: false,
-  dots: true,
-  slide: '',
-  appendDots: '',
+  dots: false,
+  slide: '.featured-slider__item',
+  // appendDots: 'featured-slider__dots',
   autoplay: true,
   autoplaySpeed: 3000
 });
+var beef = document.getElementById('beef');
+var chicken = document.getElementById('chicken');
+var fish = document.getElementById('fish'); // let productIndex = document.querySelectorAll('.product-name');
+
+var cal = document.getElementById('calories');
+var price = document.getElementById('price');
+var calories = 1.3;
+var prices = 1.7;
+var producers = document.querySelectorAll('[name="producer"]');
+producers.forEach(function (element) {
+  element.addEventListener('change', updateCalc);
+}); // producers.addEventListener('change', updateCalc);
+
+beef.addEventListener('input', calculate);
+chicken.addEventListener('input', calculate);
+fish.addEventListener('input', calculate);
+
+function updateCalc() {
+  switch (this.value) {
+    case "German":
+      {
+        prices = 1.3;
+        calories = 1.7;
+        break;
+      }
+
+    case "UK":
+      {
+        prices = 1.7;
+        calories = 2.6;
+        break;
+      }
+
+    case "Ukraine":
+      {
+        prices = 1;
+        calories = 2;
+        break;
+      }
+
+    case "France":
+      {
+        prices = 1.5;
+        calories = 1.9;
+        break;
+      }
+  } // calories = this.value;
+  // prices = this.value;
+
+
+  calculate();
+}
+
+function calculate() {
+  if (this.value > 500) {
+    this.value = 500;
+  } else if (this.value < 0) {
+    this.value = 0;
+  }
+
+  cal.value = (calories * beef.value).toFixed(1) + " kcal";
+  price.value = (prices * 0.83 * beef.value).toFixed(1) + " UAH";
+}
+
+;
 
 /***/ }),
 
