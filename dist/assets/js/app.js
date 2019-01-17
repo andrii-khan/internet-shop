@@ -13003,12 +13003,11 @@ function updateCalc() {
 }
 
 function calculate() {
-  if (this.value > 500) {
-    this.value = 500;
-  } else if (this.value < 0) {
-    this.value = 0;
-  }
-
+  // if (this.value > 500) {
+  //     this.value = 500;
+  // } else if (this.value < 0) {
+  //     this.value = 0;
+  // }
   cal.value = (calories * beef.value).toFixed(1) + " kcal";
   price.value = (prices * 0.83 * beef.value).toFixed(1) + " UAH";
 }
@@ -13125,7 +13124,7 @@ foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].p
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/dbeckerdj/Desktop/front_end/internet-shop/src/assets/js/app.js */"./src/assets/js/app.js");
+module.exports = __webpack_require__(/*! /Users/iquach/Documents/beetroot/Выпускная работа/internet-shop/src/assets/js/app.js */"./src/assets/js/app.js");
 
 
 /***/ })

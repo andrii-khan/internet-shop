@@ -81,11 +81,11 @@ function updateCalc() {
 
 
 function calculate() {
-    if (this.value > 500) {
-        this.value = 500;
-    } else if (this.value < 0) {
-        this.value = 0;
-    }
+    // if (this.value > 500) {
+    //     this.value = 500;
+    // } else if (this.value < 0) {
+    //     this.value = 0;
+    // }
     cal.value = (calories * beef.value).toFixed(1) + " kcal";
     price.value = (prices * 0.83 * beef.value).toFixed(1) + " UAH";
 };
