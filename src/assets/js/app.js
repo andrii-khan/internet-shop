@@ -18,17 +18,18 @@ import slick from 'slick-carousel/slick/slick.min.js';
 $(document).foundation();
 $('.featured-slider').slick({
     arrows: false,
-    dots: false,
-    slide: '.featured-slider__item',
-    // appendDots: 'featured-slider__dots',
+    dots: true,
+    // slide: '.featured-slider__item',
+    appendDots: 'featured-slider__dots',
     autoplay: true,
     autoplaySpeed: 3000,
 });
 const beef = document.getElementById('beef');
 const chicken = document.getElementById('chicken');
 const fish = document.getElementById('fish');
-
-// let productIndex = document.querySelectorAll('.product-name');
+const daysQuont = document.getElementById('number-days');
+const peopleQuont = document.getElementById('number-people');
+const setGrams = document.querySelector('.grams');
 
 let cal = document.getElementById('calories');
 const price = document.getElementById('price');
@@ -40,11 +41,11 @@ producers.forEach(element => {
     element.addEventListener('change', updateCalc);
 });
 
-// producers.addEventListener('change', updateCalc);
-
 beef.addEventListener('input', calculate);
 chicken.addEventListener('input', calculate);
 fish.addEventListener('input', calculate);
+peopleQuont.addEventListener('input', calculate);
+daysQuont.addEventListener('input', calculate);
 
 function updateCalc() {
     switch (this.value) {
@@ -74,8 +75,6 @@ function updateCalc() {
             }
     }
 
-    // calories = this.value;
-    // prices = this.value;
     calculate();
 }
 
@@ -86,6 +85,7 @@ function calculate() {
     // } else if (this.value < 0) {
     //     this.value = 0;
     // }
-    cal.value = (calories * beef.value).toFixed(1) + " kcal";
-    price.value = (prices * 0.83 * beef.value).toFixed(1) + " UAH";
+    cal.value = (daysQuont.value * peopleQuont.value * calories * beef.value).toFixed(1) + " kcal";
+    price.value = (daysQuont.value * peopleQuont.value * prices * 0.83 * beef.value).toFixed(1) + " UAH";
+    setGrams.textContent = beef.value * peopleQuont.value * daysQuont.value + " g";
 };

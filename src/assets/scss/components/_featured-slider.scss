@@ -1,15 +1,18 @@
 .featured-slider {
     position: relative;
+    img {
+        outline: none;
+    }
     &__item {
         background-size: cover;
         background-position: 50%;
         background-color: #fff;
-        padding: 50px 0;
+        padding: 80px 0;
         // min-height: 300px;
         outline: none;
 
         @include breakpoint(medium) {
-            padding: 80px 0;
+            padding: 1500px 0;
             // min-height: 400px;
 
         }

@@ -15,29 +15,40 @@
 
   <div class="off-canvas-wrapper">
     <div class="off-canvas position-right" id="offCanvas" data-off-canvas data-content-scroll=false>
-    </div>
+      <nav>
+          <ul class="off-canvas-menu vertical">
+              <li  class="is-active" ><a href="index.html" class="ba-main-menu__link">Head</a></li>
+              <li ><a href="product.html" class="ba-main-menu__link">Catalogue</a></li>
+              <li ><a href="#" class="ba-main-menu__link">Pay & Delivery</a></li>
+          </ul>
+      </nav>    </div>
     <div class="off-canvas-content" data-off-canvas-content>
       <header class="ba-header">
-          <div class="row align-center-middle">
-              <div class="column large-4"></div>
+          <div class="row align-center-middle small-collapse">
               <!-- column -->
-              <div class="column large-4">
-                  <nav class="ba-nav">
-                      <ul class="ba-main-menu">
-                          <li><a href="index.html" class="ba-main-menu__link">Head</a></li>
-                          <li><a href="product.html" class="ba-main-menu__link">Catalogue</a></li>
-                          <li><a href="#" class="ba-main-menu__link">Pay & Delivery</a></li>
+              <div class="column small-12 medium-6 large-4 large-offset-4">
+                  <nav class="ba-nav show-for-medium">
+                      <ul class="ba-main-menu ">
+                          <li  class="is-active" ><a href="index.html" class="ba-main-menu__link">Head</a></li>
+                          <li ><a href="product.html" class="ba-main-menu__link">Catalogue</a></li>
+                          <li ><a href="#" class="ba-main-menu__link">Pay & Delivery</a></li>
                       </ul>
-      
                   </nav>
                   <!-- ba-nav -->
+                  <div class="flex-container mob-menu hide-for-medium">
+                      <div class="small-logo">
+                          <h5 class="logo-text salsa">Easy Food <span>BE HEALTHY</span> </h5>
+                      </div>
+                      <button class="menu-icon dark" type="button" data-open="offCanvas">
+                      </button>
+                  </div>
               </div>
               <!-- column -->
-              <div class="column large-4">
+              <div class="column small-12 medium-6 large-4 show-for-medium">
                   <div class="ba-right-menu">
                       <div class="ba-right-menu__search">
                           <form action="#" method="POST" class="ba-search-form">
-                              
+      
                               <input type="text" name="search" class="ba-search-form__input">
                               <button type="submit" class="ba-btn">
                                   <svg width="30" height="30">
@@ -75,7 +86,6 @@
       
                   </div>
                   <!-- ba-right-menu -->
-      
               </div>
               <!-- column -->
           </div>
@@ -130,10 +140,10 @@
               </div>
           </div>
       </section>
-      <main>
+      <main class="wrapper">
         
         <section class="featured-slider row column">
-            <article class="featured-slider__item" style="background-image: url(assets/img/banner.png);">
+            <!-- <article class="featured-slider__item" style="background-image: url(assets/img/banner.png);">
         
             </article>
             <article class="featured-slider__item" style="background-image: url(assets/img/banner_2.png);">
@@ -141,13 +151,16 @@
             </article>
             <article class="featured-slider__item" style="background-image: url(assets/img/banner_3.png);">
         
-            </article>
-            <div class="featured-slider__dots"></div>
-            <!-- <img src="/assets/img/banner.png" alt="">
-            <img src="/assets/img/banner_2.png" alt="">
-            <img src="/assets/img/banner_3.png" alt=""> -->
-        
+            </article> -->
+            <!-- <div class="featured-slider__dots"></div> -->
+            <img src="/assets/img/banner.png" alt="">
+            <img src="/assets/img/banner2.png" alt="">
+            <img src="/assets/img/banner3.png" alt="">
         </section>
+        <div class="featured-slider__dots"></div><div class="logo-large primary show-for-medium">
+            <h1 class="logo-large__text salsa">Easy Food</h1>
+            <p class="logo-large__desc">be healthy</p>
+        </div>
       </main>
 
       <footer class="ba-footer">

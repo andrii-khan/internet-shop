@@ -12943,16 +12943,18 @@ window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a; // require('found
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).foundation();
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.featured-slider').slick({
   arrows: false,
-  dots: false,
-  slide: '.featured-slider__item',
-  // appendDots: 'featured-slider__dots',
+  dots: true,
+  // slide: '.featured-slider__item',
+  appendDots: 'featured-slider__dots',
   autoplay: true,
   autoplaySpeed: 3000
 });
 var beef = document.getElementById('beef');
 var chicken = document.getElementById('chicken');
-var fish = document.getElementById('fish'); // let productIndex = document.querySelectorAll('.product-name');
-
+var fish = document.getElementById('fish');
+var daysQuont = document.getElementById('number-days');
+var peopleQuont = document.getElementById('number-people');
+var setGrams = document.querySelector('.grams');
 var cal = document.getElementById('calories');
 var price = document.getElementById('price');
 var calories = 1.3;
@@ -12960,11 +12962,12 @@ var prices = 1.7;
 var producers = document.querySelectorAll('[name="producer"]');
 producers.forEach(function (element) {
   element.addEventListener('change', updateCalc);
-}); // producers.addEventListener('change', updateCalc);
-
+});
 beef.addEventListener('input', calculate);
 chicken.addEventListener('input', calculate);
 fish.addEventListener('input', calculate);
+peopleQuont.addEventListener('input', calculate);
+daysQuont.addEventListener('input', calculate);
 
 function updateCalc() {
   switch (this.value) {
@@ -12995,9 +12998,7 @@ function updateCalc() {
         calories = 1.9;
         break;
       }
-  } // calories = this.value;
-  // prices = this.value;
-
+  }
 
   calculate();
 }
@@ -13008,8 +13009,9 @@ function calculate() {
   // } else if (this.value < 0) {
   //     this.value = 0;
   // }
-  cal.value = (calories * beef.value).toFixed(1) + " kcal";
-  price.value = (prices * 0.83 * beef.value).toFixed(1) + " UAH";
+  cal.value = (daysQuont.value * peopleQuont.value * calories * beef.value).toFixed(1) + " kcal";
+  price.value = (daysQuont.value * peopleQuont.value * prices * 0.83 * beef.value).toFixed(1) + " UAH";
+  setGrams.textContent = beef.value * peopleQuont.value * daysQuont.value + " g";
 }
 
 ;
@@ -13124,7 +13126,7 @@ foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].p
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/dbeckerdj/Desktop/front_end/internet-shop/src/assets/js/app.js */"./src/assets/js/app.js");
+module.exports = __webpack_require__(/*! /Users/iquach/Documents/beetroot/Выпускная работа/internet-shop/src/assets/js/app.js */"./src/assets/js/app.js");
 
 
 /***/ })

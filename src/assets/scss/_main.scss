@@ -97,12 +97,14 @@ body {
     padding: 8px 0px;
     height: 30px;
     max-width: 70px;
+
     &:disabled {
         background-color: #fff;
         border: none;
     }
 }
-.custom-input:disabled{
+
+.custom-input:disabled {
     // background-color: #fff;
 }
 
@@ -116,20 +118,25 @@ body {
     border: none;
     color: $dark-gray;
     padding-left: 0;
+
     option {
         background-color: #fff;
     }
 }
 
 .grams {
+    margin-right: 130px;
     font-weight: 400;
     color: $dark-gray;
+    float: right;
 }
+
 .product-name {
     position: absolute;
     top: -8px;
     cursor: pointer;
 }
+
 .relative {
     position: relative;
 }
@@ -137,4 +144,48 @@ body {
 .mr-3 {
     margin-right: 30px;
     background: $white;
+}
+
+.wrapper {
+    max-width: 1320px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.logo-large {
+    position: absolute;
+    left: 0;
+    background-color: $secondary-color;
+    border-radius: 0px 5px 5px 0px;
+
+    @include breakpoint(medium) {
+        padding: 5px 5px 0px 58px;
+        top: 25%;
+        left: 0;
+    }
+
+    @include breakpoint(large) {
+        padding: 5px 31px 14px 100px;
+        top: 34%;
+        left: 0;
+    }
+
+    &__text {
+        margin-bottom: 0;
+        font-size: 18px;
+
+        @include breakpoint(medium) {
+            font-size: 50px;
+        }
+    }
+
+    &__desc {
+        text-transform: uppercase;
+        margin-bottom: 0;
+        font-size: 12px;
+
+        @include breakpoint(medium) {
+            font-size: 30px;
+        }
+    }
 }
