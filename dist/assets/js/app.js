@@ -13060,7 +13060,7 @@ foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].p
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/iquach/Documents/beetroot/Выпускная работа/internet-shop/src/assets/js/app.js */"./src/assets/js/app.js");
+module.exports = __webpack_require__(/*! e:\beetrootAcademy\JS\41\internet-shop\src\assets\js\app.js */"./src/assets/js/app.js");
 
 
 /***/ })
