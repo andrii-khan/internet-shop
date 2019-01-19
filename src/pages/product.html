@@ -14,8 +14,8 @@ title: Healthy Balans
     <section class="product">
         <h2 class="product-title">Healthy Balans</h2>
         <h4 class="product-subtitle">You can choose a ready-made set of products.</h4>
-        <div class="row">
-            <div class="column small-12 medium-4">
+        <div class="row align-center">
+            <div class="column small-12 medium-6 large-4">
                 <article class="product-item">
                     <a href="#"><img src="{{root}}assets/img/product1.png" alt="pasta"></a>
                     <span class="product-item__title">set 1</span>
@@ -48,7 +48,7 @@ title: Healthy Balans
                     </div>
                 </article>
             </div>
-            <div class="column small-12 medium-4">
+            <div class="column small-12 medium-6 large-4">
                 <article class="product-item">
                     <a href="#"><img src="{{root}}assets/img/product2.png" alt="salet"></a>
                     <span class="product-item__title secondary">set 2</span>
@@ -81,7 +81,7 @@ title: Healthy Balans
                     </div>
                 </article>
             </div>
-            <div class="column small-12 medium-4">
+            <div class="column small-12 medium-6 large-4">
                 <article class="product-item">
                     <a href="#"><img src="{{root}}assets/img/product3.png" alt="salmon"></a>
                     <span class="product-item__title">set 3</span>
@@ -124,7 +124,7 @@ title: Healthy Balans
                 <input class="custom-input" type="number" id="number-people" value="1">
             </div>
             <div class="flex-container">
-                <label for="number-days" class="custom-label">Enter the number of days</label>
+                <label for="number-days" class="custom-label product-select">Enter the number of days</label>
                 <input class="custom-input" type="number" id="number-days" value="1">
             </div>
         </div>
@@ -139,19 +139,34 @@ title: Healthy Balans
                             <label for="beef" class="product-name" data-product-name="1.3">Beef</label>
                         </div>
                         <select name="producer" class="custom-select producers">
-                                <option value="German">"German"</option>
-                                <option value="France">"France"</option>
-                                <option value="UK">"UK"</option>
-                                <option value="Ukraine">"Ukraine"</option>
+                                <option value="german">"German"</option>
+                                <option value="france">"France"</option>
+                                <option value="uk">"UK"</option>
+                                <option value="ukraine">"Ukraine"</option>
                         </select>
                         <input name="calories" class="custom-input mr-3" type="text" disabled id="calories" value="0">
-                        <input name="beef" class="custom-input mr-3" type="number" id="beef" placeholder="0" pattern="[0-9]{,3}" min="1" max="500">
+                        <input name="beef" class="custom-input mr-3" type="number" id="beef" placeholder="0">
                         <input name="price" class="custom-input mr-3" type="text" disabled id="price" value="0">
                         <input type="checkbox">
                     </div>
                     <div class="flex-container align-middle product-select">
                         <div class="relative">
-                            <label for="beef" class="product-name" data-product-name="1.1">Chicken</label>
+                            <label for="chicken" class="product-name" data-product-name="1.1">Chicken</label>
+                        </div>
+                        <select name="producer" class="custom-select producers">
+                                <option value="german">"German"</option>
+                                <option value="france">"France"</option>
+                                <option value="uk">"UK"</option>
+                                <option value="ukraine">"Ukraine"</option>
+                        </select>
+                        <input name="calories" class="custom-input mr-3" type="text" disabled id="calories" value="0">
+                        <input name="chicken" class="custom-input mr-3" type="number" id="chicken" placeholder="0">
+                        <input name="price" class="custom-input mr-3" type="text" disabled id="price" value="0">
+                        <input type="checkbox">
+                    </div>
+                    <div class="flex-container align-middle product-select">
+                        <div class="relative">
+                            <label for="fish" class="product-name" data-product-name="1.5">Fish</label>
                         </div>
                         <select name="producer" class="custom-select producers">
                                 <option value="German">"German"</option>
@@ -160,22 +175,7 @@ title: Healthy Balans
                                 <option value="Ukraine">"Ukraine"</option>
                         </select>
                         <input name="calories" class="custom-input mr-3" type="text" disabled id="calories" value="0">
-                        <input name="chicke" class="custom-input mr-3" type="number" id="chicken" min="1" max="500" maxlength="3" value="0">
-                        <input name="price" class="custom-input mr-3" type="text" disabled id="price" value="0">
-                        <input type="checkbox">
-                    </div>
-                    <div class="flex-container align-middle product-select">
-                        <div class="relative">
-                            <label for="beef" class="product-name" data-product-name="1.5">Fish</label>
-                        </div>
-                        <select name="producer" class="custom-select producers">
-                                <option value="German">"German"</option>
-                                <option value="France">"France"</option>
-                                <option value="UK">"UK"</option>
-                                <option value="Ukraine">"Ukraine"</option>
-                        </select>
-                        <input name="calories" class="custom-input mr-3" type="text" disabled id="calories" value="0">
-                        <input name="fish" class="custom-input mr-3" type="number" id="fish" placeholder="0" min="1" max="500" maxlength="3">
+                        <input name="fish" class="custom-input mr-3" type="number" id="fish" placeholder="0">
                         <input name="price" class="custom-input mr-3" type="text" disabled id="price" value="0">
                         <input type="checkbox">
                     </div>

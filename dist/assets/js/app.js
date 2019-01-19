@@ -12948,89 +12948,97 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('.featured-slider').slick({
   appendDots: 'featured-slider__dots',
   autoplay: true,
   autoplaySpeed: 3000
-});
-var beef = document.getElementById('beef');
-var chicken = document.getElementById('chicken');
-var fish = document.getElementById('fish');
+}); // const beef = document.getElementById('beef');
+// const chicken = document.getElementById('chicken');
+// const fish = document.getElementById('fish');
+// let cal = document.getElementById('calories');
+// const price = document.getElementById('price');
+// beef.addEventListener('input', calculate);
+// chicken.addEventListener('input', calculate);
+// fish.addEventListener('input', calculate);
+
 var daysQuont = document.getElementById('number-days');
 var peopleQuont = document.getElementById('number-people');
 var setGrams = document.querySelector('.grams');
-var cal = document.getElementById('calories');
-var price = document.getElementById('price');
-var calories = 1.3;
-var prices = 1.7;
-var producers = document.querySelectorAll('[name="producer"]');
-producers.forEach(function (element) {
-  element.addEventListener('change', updateCalc);
-});
+var countrySelect = {
+  german: {
+    calories: 1.3,
+    prices: 1.7
+  },
+  france: {
+    calories: 1.2,
+    prices: 1.5
+  },
+  uk: {
+    calories: 1.4,
+    prices: 1.44
+  },
+  ukraine: {
+    calories: 1.2,
+    prices: 1.2
+  } // let calories = 1.3;
+  // let prices = 1.7;
+
+};
+peopleQuont.addEventListener('input', calculate);
+daysQuont.addEventListener('input', calculate); // const producers = document.querySelectorAll('[name="producer"]');
+// producers.forEach(element => {
+//     element.addEventListener('change', updateCalc);
+// });
+
 var orderList = document.querySelectorAll('.product-select');
 orderList.forEach(function (element) {
-  element.addEventListener('change', func);
-  element.addEventListener('input', func);
-  console.log(element);
+  element.addEventListener('change', selectInput);
+  element.addEventListener('input', selectInput); // console.log(element);
 });
 
-function func(event) {
-  var input = event.target;
-  console.log(input);
+function selectInput(event) {
+  var input = event.target; // console.log(input);
+
   var orderItem = input.closest('.product-select');
-  var cal = orderItem.querySelector('[name="calories"]');
+  var cal = orderItem.querySelector('[name="calories"]'); // let cals = Array.from(document.querySelectorAll('[name="calories"]')).reduce((accumulator, currentValue) => {
+  //     console.log(currentValue.value)
+  //     return accumulator + parseInt(currentValue.value);
+  // }, 1);
+
   var price = orderItem.querySelector('[name="price"]');
   calculate(cal, price, input.value);
 }
 
-beef.addEventListener('input', calculate);
-chicken.addEventListener('input', calculate);
-fish.addEventListener('input', calculate);
-peopleQuont.addEventListener('input', calculate);
-daysQuont.addEventListener('input', calculate);
-
-function updateCalc() {
-  switch (this.value) {
-    case "German":
-      {
-        prices = 1.3;
-        calories = 1.7;
-        break;
-      }
-
-    case "UK":
-      {
-        prices = 1.7;
-        calories = 2.6;
-        break;
-      }
-
-    case "Ukraine":
-      {
-        prices = 1;
-        calories = 2;
-        break;
-      }
-
-    case "France":
-      {
-        prices = 1.5;
-        calories = 1.9;
-        break;
-      }
-  }
-
-  calculate();
-}
-
 function calculate(cal, price, input) {
-  // if (this.value > 500) {
-  //     this.value = 500;
-  // } else if (this.value < 0) {
-  //     this.value = 0;
-  // }
-  cal.value = (daysQuont.value * peopleQuont.value * calories * input).toFixed(1) + " kcal";
-  price.value = (daysQuont.value * peopleQuont.value * prices * 0.83 * input).toFixed(1) + " UAH";
-  setGrams.textContent = input * peopleQuont.value * daysQuont.value + " g";
+  cal.value = (daysQuont.value * peopleQuont.value * input).toFixed(1) + " kcal";
+  price.value = (daysQuont.value * peopleQuont.value * 0.83 * input).toFixed(1) + " UAH"; // setGrams.textContent = cals * peopleQuont.value * daysQuont.value + " g";
 }
 
-;
+; // function updateCalc() {
+//     switch (this.value) {
+//         case "German":
+//             {
+//                 prices = 1.3;
+//                 calories = 1.7;
+//                 break;
+//             }
+//         case "UK":
+//             {
+//                 prices = 1.7;
+//                 calories = 2.6;
+//                 break;
+//             }
+//         case "Ukraine":
+//             {
+//                 prices = 1;
+//                 calories = 2;
+//                 break;
+//             }
+//         case "France":
+//             {
+//                 prices = 1.5;
+//                 calories = 1.9;
+//                 break;
+//             }
+//     }
+//     calculate(cal, price, input.value);
+// }
 
 /***/ }),
 
