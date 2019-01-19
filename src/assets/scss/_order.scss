@@ -1,0 +1,243 @@
+.ba-order {
+    padding-top: 65px;
+    background-color: $body-background;
+
+    @include breakpoint(medium) {
+        font-size: 14px;
+    }
+
+    @include breakpoint(small) {
+        font-size: 12px;
+    }
+
+    &-list {
+        @include breakpoint(medium) {
+            border-bottom: 1px solid $primary-color;
+        }
+
+        &-pick {
+            display: block;
+            margin: 0 auto;
+            padding-top: 11px;
+
+        }
+    }
+}
+
+.ba-order-list-item {
+    padding-left: 15px;
+
+    &__title {
+        color: $primary-color;
+        font-weight: bold;
+
+        @include breakpoint(medium) {
+            font-size: 24px;
+        }
+
+        @include breakpoint(small) {
+            font-size: 14px;
+        }
+    }
+
+    &-products {
+        padding-bottom: 24px;
+    }
+
+    &-result {
+        color: $body-font-color;
+        display: inline-block;
+
+        @include breakpoint(medium) {
+            &:nth-of-type(odd) {
+                padding-bottom: 15px;
+            }
+        }
+    }
+
+    &-price {
+        color: $primary-color;
+        font-size: 14px;
+        font-weight: bold;
+        padding-bottom: 11px;
+        margin: 0;
+
+        @include breakpoint(medium) {
+            font-size: 24px;
+        }
+
+        &__num {
+            padding-left: 15px;
+        }
+    }
+}
+
+.ba-order-form {
+
+    &__title {
+        color: $primary-color;
+        font-weight: 500;
+        font-size: 24px;
+        padding: 30px 0 15px;
+        font-weight: bold;
+        margin: 0;
+
+        @include breakpoint(medium) {
+            font-weight: 500;
+            font-size: 36px;
+        }
+    }
+}
+
+.ba-back {
+    display: flex;
+    align-items: center;
+    color: $body-font-color;
+    font-weight: 500;
+    padding-bottom: 42px;
+
+    span {
+        padding-left: 7px;
+    }
+}
+
+
+.ba-sign {
+    display: flex;
+
+    label {
+        color: $body-font-color;
+        font-weight: 500;
+        font-size: 18px;
+
+    }
+
+    label+label {
+        margin-left: 51px;
+    }
+
+    &-check {
+        input {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+
+            &:checked+.ba-sign-check__text:after {
+                opacity: 1;
+            }
+
+        }
+
+        &__text {
+            position: relative;
+            padding: 0 0 0 17px;
+            cursor: pointer;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 25%;
+                left: 0;
+                width: 10px;
+                height: 10px;
+                border: 1px solid $light-gray;
+                border-radius: 50%;
+                background: #FFF;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 7px;
+                left: 2px;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: $primary-color;
+                opacity: 0;
+                transition: .2s;
+            }
+        }
+    }
+
+}
+
+.ba-form {
+    color: $light-gray;
+    font-weight: 500;
+    font-size: 14px;
+
+    &-title {
+        font-weight: 500;
+        font-size: 18px;
+        padding-bottom: 15px;
+        margin: 0;
+        color: $body-font-color;
+    }
+
+    &__content {
+        margin: 0;
+        padding-top: 10px;
+
+        &--first {
+            text-decoration: underline;
+        }
+    }
+
+    &-person {
+        padding: 18px 0 30px;
+
+        input+input {
+            margin-bottom: 15px;
+        }
+
+    }
+
+    &-delivery {
+        padding-bottom: 32px;
+        label {
+            color: $light-gray;
+            font-weight: 500;
+            font-size: 14px;
+        }
+    }
+&-address{
+    padding-bottom: 17px;
+}
+
+&-pay{
+    padding-bottom: 17px;
+}
+
+&-comment{
+    padding-bottom: 30px;
+}
+
+&-agree{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 34px;
+    input{
+        margin-right: 15px;
+    }
+    label{
+        font-weight: 500;
+        color: $body-font-color;;
+    }
+}
+
+&-send{
+    display: block;
+    margin: 0 auto 45px;
+    cursor: pointer;
+    background-color:$light-gray;
+    width: 33.33%;
+    padding: 9px 0;
+    border-radius: 5px;
+    color: $secondary-color;
+    
+    &:hover{
+        background-color:$primary-color;
+    }
+}
+}
