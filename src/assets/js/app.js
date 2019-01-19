@@ -41,6 +41,27 @@ producers.forEach(element => {
     element.addEventListener('change', updateCalc);
 });
 
+let orderList = document.querySelectorAll('.product-select');
+
+orderList.forEach(element => {
+    element.addEventListener('change', func);
+    element.addEventListener('input', func);
+    console.log(element);
+    
+});
+
+function func(event) {
+    let input = event.target;
+    console.log(input);
+
+    let orderItem = input.closest('.product-select');
+    let cal = orderItem.querySelector('[name="calories"]');
+    const price = orderItem.querySelector('[name="price"]');
+
+
+    calculate(cal, price, input.value);
+}
+
 beef.addEventListener('input', calculate);
 chicken.addEventListener('input', calculate);
 fish.addEventListener('input', calculate);
@@ -79,13 +100,13 @@ function updateCalc() {
 }
 
 
-function calculate() {
+function calculate(cal, price, input) {
     // if (this.value > 500) {
     //     this.value = 500;
     // } else if (this.value < 0) {
     //     this.value = 0;
     // }
-    cal.value = (daysQuont.value * peopleQuont.value * calories * beef.value).toFixed(1) + " kcal";
-    price.value = (daysQuont.value * peopleQuont.value * prices * 0.83 * beef.value).toFixed(1) + " UAH";
-    setGrams.textContent = beef.value * peopleQuont.value * daysQuont.value + " g";
+    cal.value = (daysQuont.value * peopleQuont.value * calories * input).toFixed(1) + " kcal";
+    price.value = (daysQuont.value * peopleQuont.value * prices * 0.83 * input).toFixed(1) + " UAH";
+    setGrams.textContent = input * peopleQuont.value * daysQuont.value + " g";
 };

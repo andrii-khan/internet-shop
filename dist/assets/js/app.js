@@ -12963,6 +12963,22 @@ var producers = document.querySelectorAll('[name="producer"]');
 producers.forEach(function (element) {
   element.addEventListener('change', updateCalc);
 });
+var orderList = document.querySelectorAll('.product-select');
+orderList.forEach(function (element) {
+  element.addEventListener('change', func);
+  element.addEventListener('input', func);
+  console.log(element);
+});
+
+function func(event) {
+  var input = event.target;
+  console.log(input);
+  var orderItem = input.closest('.product-select');
+  var cal = orderItem.querySelector('[name="calories"]');
+  var price = orderItem.querySelector('[name="price"]');
+  calculate(cal, price, input.value);
+}
+
 beef.addEventListener('input', calculate);
 chicken.addEventListener('input', calculate);
 fish.addEventListener('input', calculate);
@@ -13003,15 +13019,15 @@ function updateCalc() {
   calculate();
 }
 
-function calculate() {
+function calculate(cal, price, input) {
   // if (this.value > 500) {
   //     this.value = 500;
   // } else if (this.value < 0) {
   //     this.value = 0;
   // }
-  cal.value = (daysQuont.value * peopleQuont.value * calories * beef.value).toFixed(1) + " kcal";
-  price.value = (daysQuont.value * peopleQuont.value * prices * 0.83 * beef.value).toFixed(1) + " UAH";
-  setGrams.textContent = beef.value * peopleQuont.value * daysQuont.value + " g";
+  cal.value = (daysQuont.value * peopleQuont.value * calories * input).toFixed(1) + " kcal";
+  price.value = (daysQuont.value * peopleQuont.value * prices * 0.83 * input).toFixed(1) + " UAH";
+  setGrams.textContent = input * peopleQuont.value * daysQuont.value + " g";
 }
 
 ;
@@ -13126,7 +13142,7 @@ foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].p
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! e:\beetrootAcademy\JS\41\internet-shop\src\assets\js\app.js */"./src/assets/js/app.js");
+module.exports = __webpack_require__(/*! /Users/iquach/Documents/beetroot/Выпускная работа/internet-shop/src/assets/js/app.js */"./src/assets/js/app.js");
 
 
 /***/ })

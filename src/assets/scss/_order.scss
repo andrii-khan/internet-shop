@@ -1,5 +1,4 @@
 .ba-order {
-    padding-top: 65px;
     background-color: $body-background;
 
     @include breakpoint(medium) {
@@ -113,7 +112,8 @@
     }
 
     label+label {
-        margin-left: 51px;
+        margin: 0;
+        margin-right: 10px;
     }
 
     &-check {
@@ -132,6 +132,7 @@
             position: relative;
             padding: 0 0 0 17px;
             cursor: pointer;
+            font-size: 17px;
 
             &:before {
                 content: '';
