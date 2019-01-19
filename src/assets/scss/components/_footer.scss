@@ -1,3 +1,264 @@
-.ba-work-schedule {
-    // transform: rotate(-90deg);
+.ba-footer {
+    background: $primary-color;
+    color: $white;
+    padding-bottom: 10px;
+    @include breakpoint(medium) {
+        padding-top: 30px;
+    }
+
+    @include breakpoint(xlarge) {
+        padding-top: 30px;
+    }
+
+    a {
+        color: $white;
+        display: block;
+    }
 }
+
+.ba-schedule {
+    position: relative;
+    padding: 20px 0 10px;
+
+    p {
+        margin: 0;
+    }
+    @include breakpoint(medium) {
+        padding: 0 0 10px 22px;
+
+    }
+
+    @include breakpoint(xlarge) {
+        padding: 0 0 10px 80px;
+
+    }
+
+
+    &__title {
+        margin-left: 87px;
+        @include breakpoint(medium) {
+            margin-left: 0;
+            position: absolute;
+            left: -58px;
+            bottom: -13px;
+            transform: rotate(-90deg);
+        }
+
+        @include breakpoint(xlarge) {
+            position: absolute;
+            left: -60px;
+            bottom: -40px;
+            transform: rotate(-90deg);
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            vertical-align: middle;
+            height: 1px;
+            width: 70px;
+            background-color: $white;
+            top: 26%;
+            left: 2px;
+            @include breakpoint(medium) {
+                transform: translateX(-50%);
+                left: -57px;
+                top: 50%;
+            }
+
+            @include breakpoint(xlarge) {
+                top: 50%;
+                transform: translateX(-50%);
+                left: -57px;
+            }
+        }
+    }
+}
+
+
+
+.ba-contact {
+    position: relative;
+    padding: 20px 0 10px;
+
+    p, a {
+        margin: 0 0 0 80px;
+        @include breakpoint(medium) {
+            margin: 0 0 10px 0;
+        }
+    
+    }
+    @include breakpoint(medium) {
+        padding: 35px 0 0px 20px
+
+    }
+
+    @include breakpoint(xlarge) {
+        padding: 0 0 0 40px;
+
+    }
+
+    &__title {
+        margin-left: 168px;
+        // position: absolute;
+        // left: 165px;
+        // top: 24px;
+        @include breakpoint(medium) {
+            margin-left: 17px;
+            position: absolute;
+            left: -59px;
+            bottom: 87px;
+            transform: rotate(-90deg);
+        }
+
+        @include breakpoint(xlarge) {
+            position: absolute;
+            left: -118px;
+            bottom: 23px;
+            transform: rotate(-90deg);
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            vertical-align: middle;
+            height: 1px;
+            width: 70px;
+            background-color: $white;
+            top: 17%;
+            left: 82px;
+            @include breakpoint(medium) {
+                transform: translateX(-50%);
+                left: -57px;
+                top: 50%;
+            }
+
+            @include breakpoint(xlarge) {
+                transform: translateX(-50%);
+                left: -57px;
+                top: 50%;
+            }
+        }
+    }
+}
+
+
+
+.ba-map {
+    position: relative;
+    padding: 20px 0 10px;
+
+    @include breakpoint(medium) {
+        padding: 0 23px 10px 23px;
+    }
+    
+    @include breakpoint(xlarge) {
+        padding: 0;
+    }
+
+    &__title {
+        text-align: right;
+        margin-right: 10px;
+        // position: absolute;
+        // left: 250px;
+        // top: 24px;
+        @include breakpoint(medium) {
+            position: absolute;
+            left: -15px;
+            bottom: 88px;
+            transform: rotate(-90deg);
+        }
+
+        @include breakpoint(xlarge) {
+            position: absolute;
+            left: -60px;
+            bottom: 78px;
+            transform: rotate(-90deg);
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            vertical-align: middle;
+            height: 1px;
+            width: 70px;
+            background-color: $white;
+            top: 12%;
+            left: 166px;
+            @include breakpoint(medium) {
+                transform: translateX(-50%);
+                left: -57px;
+                top: 50%;
+            }
+
+            @include breakpoint(xlarge) {
+                transform: translateX(-50%);
+                left: -57px;
+                top: 50%;
+            }
+        }
+    }
+}
+
+
+
+.ba-copy {
+    margin-top: 10px;
+    font-size: 10px;
+    display: block;
+    text-align: center;
+
+    @include breakpoint(medium){
+        margin-top: 10px;
+        font-size: 10px;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 25px;
+    }
+
+    @include breakpoint(xlarge){
+        margin-top: 10px;
+        font-size: 10px;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .ba-map {
+//     position: relative;
+//     padding-top: 37px;
+
+//     &__title {
+//         position: absolute;
+//         left: -69px;
+//         bottom: 70px;
+//         transform: rotate(-90deg);
+
+//         &::before {
+//             content: "";
+//             position: absolute;
+//             top: 50%;
+//             transform: translateX(-50%);
+//             left: -57px;
+//             vertical-align: middle;
+//             height: 1px;
+//             width: 70px;
+//             background-color: $white;
+//         }
+//     }
+// }
