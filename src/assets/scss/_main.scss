@@ -189,3 +189,32 @@ body {
         }
     }
 }
+.product-list {
+    margin: 0;
+    list-style: none;
+}
+.calculate {
+    padding-top: 50px;
+}
+.basket-list {
+    padding: 15px 0 0;
+    margin-bottom: 14px;
+    .button {
+        font-size: 18px;
+        font-weight: 500;
+        background-color: $alert-color;
+        min-width: 213px;
+        margin-bottom: 45px;
+        @include breakpoint(medium){
+            min-width: 258px;
+        }
+        @include breakpoint(large){
+            min-width: 270px;
+        }
+        &:hover {
+            opacity: 0.7;
+        }
+        
+    }
+    
+}

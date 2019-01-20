@@ -30,6 +30,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    @include breakpoint(medium){
+        margin-right: 15px;
+    }
     & svg {
         margin-right: 10px;
     }
