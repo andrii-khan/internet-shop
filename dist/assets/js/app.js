@@ -14938,26 +14938,15 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('.featured-slider').slick({
   appendDots: 'featured-slider__dots',
   autoplay: true,
   autoplaySpeed: 3000
-}); // const beef = document.getElementById('beef');
-// const chicken = document.getElementById('chicken');
-// const fish = document.getElementById('fish');
-// let cal = document.getElementById('calories');
-// const price = document.getElementById('price');
-// beef.addEventListener('input', calculate);
-// chicken.addEventListener('input', calculate);
-// fish.addEventListener('input', calculate);
-
-var daysQuont = document.getElementById('number-days');
-var peopleQuont = document.getElementById('number-people');
-var setGrams = document.querySelector('.grams');
+});
 var countrySelect = {
   german: {
     calories: 1.3,
     prices: 1.7
   },
   france: {
-    calories: 1.2,
-    prices: 1.5
+    calories: 1.5,
+    prices: 1.3
   },
   uk: {
     calories: 1.4,
@@ -14965,73 +14954,45 @@ var countrySelect = {
   },
   ukraine: {
     calories: 1.2,
-    prices: 1.2
+    prices: 1.1
   }
 };
-peopleQuont.addEventListener('input', calculate);
-daysQuont.addEventListener('input', calculate);
-var producers = document.querySelectorAll('[name="producer"]');
-producers.forEach(function (element) {
-  element.addEventListener('change', updateCalc);
+var numberDays = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#number-days");
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(numberDays).on('input', function () {
+  numberDays = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val(); // console.log(numberDays);
 });
-var orderList = document.querySelectorAll('.product-select');
-orderList.forEach(function (element) {
-  element.addEventListener('change', selectInput);
-  element.addEventListener('input', selectInput); // console.log(element);
+var numberPeople = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#number-people");
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(numberPeople).on('input', function () {
+  numberPeople = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val(); // console.log(numberPeople);
+});
+var counSel = jquery__WEBPACK_IMPORTED_MODULE_0___default()("[name=producer]");
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(counSel).on('change', function () {
+  var countryInfo = countrySelect[jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).find(":selected").val()];
+  var calories = countryInfo["calories"];
+  var prices = countryInfo["prices"];
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('.relative').find('label').attr('data-calories', calories);
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('.relative').find('label').attr('data-price', prices);
+  var item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('.product-select').find('input[type=number]');
+  calculate(item); // console.log($(this).find(":selected").val());
+}); // console.log(productIndex);
+
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.product-select input[type=number]').on('input', function (e) {
+  // var productIndex = $(this).siblings('.relative').find('label').data('product-name');
+  // var productPrice = $(this).siblings('.relative').find('label').data('price');
+  // var productCalories = $(this).siblings('.relative').find('label').data('calories');
+  // console.log(productIndex);
+  calculate(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this));
 });
 
-function selectInput(event) {
-  var input = event.target;
-  var orderItem = input.closest('.product-select');
-  var cal = orderItem.querySelector('[name="calories"]'); // let cals = Array.from(document.querySelectorAll('[name="calories"]')).reduce((accumulator, currentValue) => {
-  //     console.log(currentValue.value)
-  //     return accumulator + parseInt(currentValue.value);
-  // }, 1);
+function calculate(item) {
+  var productIndex = item.siblings('.relative').find('label').data('product-name');
+  var productPrice = item.siblings('.relative').find('label').data('price');
+  var productCalories = item.siblings('.relative').find('label').data('calories');
+  var calories = (item.val() * productIndex * productCalories).toFixed(1);
+  var price = (item.val() * productIndex * productPrice).toFixed(1); // console.log(item, item.siblings('.relative'));
 
-  var price = orderItem.querySelector('[name="price"]'); // console.log(input);
-
-  calculate(cal, price, input.value);
-}
-
-function calculate(cal, price, input) {
-  cal.value = (daysQuont.value * peopleQuont.value * input).toFixed(1) + " kcal";
-  price.value = (daysQuont.value * peopleQuont.value * 0.83 * input).toFixed(1) + " UAH"; // setGrams.textContent = cals * peopleQuont.value * daysQuont.value;
-}
-
-;
-
-function updateCalc() {
-  switch (this.value) {
-    case "German":
-      {
-        prices = 1.3;
-        calories = 1.7;
-        break;
-      }
-
-    case "UK":
-      {
-        prices = 1.7;
-        calories = 2.6;
-        break;
-      }
-
-    case "Ukraine":
-      {
-        prices = 1;
-        calories = 2;
-        break;
-      }
-
-    case "France":
-      {
-        prices = 1.5;
-        calories = 1.9;
-        break;
-      }
-  }
-
-  calculate(calories, prices);
+  item.siblings("[name=price]").attr('value', price);
+  item.siblings("[name=calories]").attr('value', calories);
 }
 
 /***/ }),
