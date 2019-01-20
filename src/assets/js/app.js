@@ -64,7 +64,7 @@ $(counSel).on('change', function () {
     $(this).siblings('.relative').find('label').attr('data-price', prices);
     var item = $(this).closest('.product-select').find('input[type=number]');
     calculate(item);
-    // console.log($(this).find(":selected").val());
+    // console.log(countryInfo);
 });
 
 
@@ -85,7 +85,7 @@ function calculate(item) {
     var productCalories = item.siblings('.relative').find('label').data('calories');
     var calories = (item.val() * productIndex * productCalories).toFixed(1);
     var price = (item.val() * productIndex * productPrice).toFixed(1);
-    // console.log(item, item.siblings('.relative'));
-    item.siblings("[name=price]").attr('value', price);
-    item.siblings("[name=calories]").attr('value', calories);
+    console.log(productCalories, productPrice);
+    item.siblings("[name=price]").attr('value', price + " UAH");
+    item.siblings("[name=calories]").attr('value', calories + " kcal");
 }

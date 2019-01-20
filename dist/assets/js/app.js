@@ -14973,7 +14973,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(counSel).on('change', function () 
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('.relative').find('label').attr('data-calories', calories);
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('.relative').find('label').attr('data-price', prices);
   var item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('.product-select').find('input[type=number]');
-  calculate(item); // console.log($(this).find(":selected").val());
+  calculate(item); // console.log(countryInfo);
 }); // console.log(productIndex);
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.product-select input[type=number]').on('input', function (e) {
@@ -14989,10 +14989,10 @@ function calculate(item) {
   var productPrice = item.siblings('.relative').find('label').data('price');
   var productCalories = item.siblings('.relative').find('label').data('calories');
   var calories = (item.val() * productIndex * productCalories).toFixed(1);
-  var price = (item.val() * productIndex * productPrice).toFixed(1); // console.log(item, item.siblings('.relative'));
-
-  item.siblings("[name=price]").attr('value', price);
-  item.siblings("[name=calories]").attr('value', calories);
+  var price = (item.val() * productIndex * productPrice).toFixed(1);
+  console.log(productCalories, productPrice);
+  item.siblings("[name=price]").attr('value', price + " UAH");
+  item.siblings("[name=calories]").attr('value', calories + " kcal");
 }
 
 /***/ }),

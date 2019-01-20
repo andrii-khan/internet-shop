@@ -97,7 +97,17 @@ body {
     padding: 8px 0px;
     height: 30px;
     max-width: 70px;
-
+    border-color: $primary-color;
+    border-width: 0.5px;
+    &:focus {
+        border-width: 1.5px;
+    }
+    &:hover {
+        background-color: $secondary-color;
+    }
+    &::-webkit-inner-spin-button {
+        display: none;
+    }
     &:disabled {
         background-color: #fff;
         border: none;
@@ -195,6 +205,9 @@ body {
 }
 .calculate {
     padding-top: 50px;
+    &__title {
+        margin-bottom: 0;
+    }
 }
 .basket-list {
     padding: 15px 0 0;
@@ -217,4 +230,26 @@ body {
         
     }
     
+}
+.accordion-title:hover, .accordion-title:focus {
+    background-color: #fff;
+}
+.accordion-content {
+    border: none;
+}
+.accordion-title {
+    border: none;
+}
+.accordion-title::before {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    margin-top: -0.5rem;
+    content: url('../img/svg/close.svg');
+}
+.is-active > .accordion-title::before {
+    content: url('../img/svg/open.svg');
+}
+:last-child:not(.is-active) > .accordion-title {
+    border-bottom: none;
 }
