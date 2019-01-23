@@ -1,0 +1,48 @@
+.ba-food-gallery__card {
+    position: relative;
+    margin-bottom: 43px;
+}
+
+.ba-food-gallery__title {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    @include breakpoint(medium){
+        top: 5px;
+        left: 31px;
+        
+    }
+    @include breakpoint(xlarge){
+        top: 5px;
+        left: 31px;
+    }
+
+    p {
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: 900;
+    }
+}
+
+.ba-food-gallery__title--light{
+    color: $secondary-color;
+}
+
+.ba-about-shop__title {
+    text-align: center;
+    color: $primary-color;
+    text-transform: uppercase;
+    margin-bottom: 38px;
+}
+
+
+.about-shop__item {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 30px;
+    svg {
+        margin-right: 40px;
+        min-width: 50px;
+    }
+}

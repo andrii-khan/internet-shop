@@ -170,13 +170,15 @@ body {
 
     @include breakpoint(medium) {
         padding: 5px 5px 0px 58px;
-        top: 25%;
+        // top: 25%;
+        top: 8%;  
         left: 0;
     }
 
-    @include breakpoint(large) {
+    @include breakpoint(xlarge) {
         padding: 5px 31px 14px 100px;
-        top: 34%;
+        // top: 34%;
+        top: 12%;       
         left: 0;
     }
 
