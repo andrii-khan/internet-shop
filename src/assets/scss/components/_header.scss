@@ -33,13 +33,10 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-<<<<<<< HEAD
     @include breakpoint(medium){
         margin-right: 15px;
     }
-=======
 
->>>>>>> about
     & svg {
         margin-right: 10px;
     }
