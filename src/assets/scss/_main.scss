@@ -253,3 +253,31 @@ body {
 :last-child:not(.is-active) > .accordion-title {
     border-bottom: none;
 }
+.bnt-product {
+    min-width: 253px;
+    margin-bottom: 28px;
+    background-color: $dark-gray;
+    font-size: 18px;
+    border-radius: 5px;
+    color: $secondary-color;
+    @include breakpoint(medium){
+        // min-width: 359px;
+        // margin-bottom: 45px;
+    }
+    &:hover {
+        color: $black;
+    }
+    &:active {
+        background-color: $alert-color;
+        color: $secondary-color;
+    }
+}
+.order-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+    border: 1px solid $dark-gray;
+    border-radius: 5px;
+    padding: 30px 30px 0;
+}

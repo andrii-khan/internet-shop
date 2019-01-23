@@ -14960,27 +14960,26 @@ var countrySelect = {
 var numberDays = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#number-days");
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(numberDays).on('input', function () {
   numberDays = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val(); // console.log(numberDays);
+  // multiplyPrices();
+  // calculate();
 });
 var numberPeople = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#number-people");
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(numberPeople).on('input', function () {
-  numberPeople = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val(); // console.log(numberPeople);
+  numberPeople = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val(); // multiplyPrices();
+  // calculate(numberPeople);
 });
 var counSel = jquery__WEBPACK_IMPORTED_MODULE_0___default()("[name=producer]");
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(counSel).on('change', function () {
   var countryInfo = countrySelect[jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).find(":selected").val()];
   var calories = countryInfo["calories"];
   var prices = countryInfo["prices"];
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('.relative').find('label').attr('data-calories', calories);
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('.relative').find('label').attr('data-price', prices);
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('.relative').find('label').data('calories', calories);
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('.relative').find('label').data('price', prices);
   var item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('.product-select').find('input[type=number]');
   calculate(item); // console.log(countryInfo);
 }); // console.log(productIndex);
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.product-select input[type=number]').on('input', function (e) {
-  // var productIndex = $(this).siblings('.relative').find('label').data('product-name');
-  // var productPrice = $(this).siblings('.relative').find('label').data('price');
-  // var productCalories = $(this).siblings('.relative').find('label').data('calories');
-  // console.log(productIndex);
   calculate(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this));
 });
 
@@ -14989,11 +14988,33 @@ function calculate(item) {
   var productPrice = item.siblings('.relative').find('label').data('price');
   var productCalories = item.siblings('.relative').find('label').data('calories');
   var calories = (item.val() * productIndex * productCalories).toFixed(1);
-  var price = (item.val() * productIndex * productPrice).toFixed(1);
-  console.log(productCalories, productPrice);
+  var price = (item.val() * productIndex * productPrice).toFixed(1); // console.log(productCalories, productPrice);
+
   item.siblings("[name=price]").attr('value', price + " UAH");
   item.siblings("[name=calories]").attr('value', calories + " kcal");
-}
+} // function multiplyPrices() {
+//     $("[name=price]").each(function(){
+//         var newPrice = ($(this).val() * numberPeople);
+//         console.log(newPrice);
+//         $(this).val(newPrice);
+//     });
+// }
+
+
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.product-select input[type=checkbox]').on('change', function () {
+  // console.log($(this));
+  var findCalories = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('[name=calories]').val();
+  var findPrice = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('[name=price]').val();
+  var findProductName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('.relative').find('label').text();
+  console.log(findCalories, findPrice, findProductName);
+  var orderForm = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.order-form__content'); // var createCal = orderForm.append('<div class="calories">Колличество каллорий</div>')
+
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).prop("checked")) {
+    orderForm.text(findProductName + findPrice).append();
+  } else {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeProp();
+  }
+});
 
 /***/ }),
 

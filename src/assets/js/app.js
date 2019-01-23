@@ -47,12 +47,15 @@ var numberDays = $("#number-days");
 $(numberDays).on('input', function () {
     numberDays = $(this).val();
     // console.log(numberDays);
+    // multiplyPrices();
+    // calculate();
 });
 
 var numberPeople = $("#number-people")
 $(numberPeople).on('input', function () {
     numberPeople = $(this).val();
-    // console.log(numberPeople);
+    // multiplyPrices();
+    // calculate(numberPeople);
 });
 
 var counSel = $("[name=producer]");
@@ -60,8 +63,8 @@ $(counSel).on('change', function () {
     var countryInfo = countrySelect[$(this).find(":selected").val()];
     var calories = countryInfo["calories"];
     var prices = countryInfo["prices"];
-    $(this).siblings('.relative').find('label').attr('data-calories', calories);
-    $(this).siblings('.relative').find('label').attr('data-price', prices);
+    $(this).siblings('.relative').find('label').data('calories', calories);
+    $(this).siblings('.relative').find('label').data('price', prices);
     var item = $(this).closest('.product-select').find('input[type=number]');
     calculate(item);
     // console.log(countryInfo);
@@ -72,12 +75,10 @@ $(counSel).on('change', function () {
 // console.log(productIndex);
 
 $('.product-select input[type=number]').on('input', function (e) {
-    // var productIndex = $(this).siblings('.relative').find('label').data('product-name');
-    // var productPrice = $(this).siblings('.relative').find('label').data('price');
-    // var productCalories = $(this).siblings('.relative').find('label').data('calories');
-    // console.log(productIndex);
+   
     calculate($(this));
 });
+
 
 function calculate(item) {
     var productIndex = item.siblings('.relative').find('label').data('product-name');
@@ -85,7 +86,33 @@ function calculate(item) {
     var productCalories = item.siblings('.relative').find('label').data('calories');
     var calories = (item.val() * productIndex * productCalories).toFixed(1);
     var price = (item.val() * productIndex * productPrice).toFixed(1);
-    console.log(productCalories, productPrice);
+    // console.log(productCalories, productPrice);
     item.siblings("[name=price]").attr('value', price + " UAH");
     item.siblings("[name=calories]").attr('value', calories + " kcal");
+
 }
+// function multiplyPrices() {
+//     $("[name=price]").each(function(){
+//         var newPrice = ($(this).val() * numberPeople);
+//         console.log(newPrice);
+//         $(this).val(newPrice);
+//     });
+// }
+
+$('.product-select input[type=checkbox]').on('change', function () {
+    // console.log($(this));
+    var findCalories = $(this).siblings('[name=calories]').val();
+    var findPrice = $(this).siblings('[name=price]').val();
+    var findProductName = $(this).siblings('.relative').find('label').text();
+
+    console.log(findCalories, findPrice, findProductName);
+    var orderForm = $('.order-form__content');
+    // var createCal = orderForm.append('<div class="calories">Колличество каллорий</div>')
+
+    if ($(this).prop("checked") ){
+        orderForm.text(findProductName + findPrice).append()
+    } else {
+        $(this).removeProp()
+    }
+
+ });
