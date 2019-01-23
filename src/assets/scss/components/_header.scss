@@ -1,6 +1,7 @@
 .ba-header {
     margin: 10px 0;
-    @include breakpoint(medium){
+
+    @include breakpoint(medium) {
         margin: 20px 0;
     }
 }
@@ -10,19 +11,21 @@
     // justify-content: center;
     list-style: none;
     margin: 0;
-    &__link{
+
+    &__link {
         color: #170706;
         padding: 0 10px;
         font-size: 14px;
         font-weight: 500;
         font-family: Roboto;
     }
-    .is-active a{
+
+    .is-active a {
         color: $alert-color;
     }
 }
 
-.ba-main-menu li + li {
+.ba-main-menu li+li {
     margin-left: 20px;
 }
 
@@ -30,6 +33,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
     & svg {
         margin-right: 10px;
     }
@@ -37,19 +41,21 @@
 
 .header-button {
     font-size: 14px;
-    border-radius: 5px; 
+    border-radius: 5px;
     white-space: nowrap;
 }
 
 .ba-search-form {
     display: flex;
     align-items: center;
+
     &__input {
         border: none;
         margin: 0;
         outline: none;
         border-bottom: 1px solid #EBF1CD;
-        &:focus{
+
+        &:focus {
             border: none;
             border-bottom: 1px solid #EBF1CD;
         }
@@ -59,26 +65,72 @@
 .off-canvas-menu {
     list-style: none;
 }
+
 .small-logo {
     background-color: $secondary-color;
     padding: 5px 55px 5px 15px;
     border-radius: 0px 5px 5px 0px;
 }
+
 .mob-menu {
     justify-content: space-between;
     align-items: center;
     padding: 0 15px 0 0;
-    
+
 }
+
 .logo-text {
     color: $primary-color;
     margin: 0;
+
     span {
         margin-left: 10px;
         font-size: 10px;
 
     }
 }
+
 .salsa {
     font-family: Salsa;
+}
+
+
+.social-block-header {
+    display: none;
+
+    // position: relative;
+    @include breakpoint(medium) {
+        display: none;
+    }
+
+    @include breakpoint(xlarge) {
+        display: block;
+
+        &__title {
+            position: absolute;
+            z-index: 2;
+
+            top: 85px;
+            right: 10px;
+            transform: rotate(-90deg);
+            font-size: 12px;
+            color: $primary-color;
+
+        }
+
+        &__ico {
+            position: absolute;
+            z-index: 2;
+
+            top: 150px;
+            right: 23px;
+            display: flex;
+            flex-direction: column;
+
+            svg {
+                margin-bottom: 5px;
+            }
+        }
+    }
+
 }
