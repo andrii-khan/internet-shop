@@ -242,3 +242,15 @@
     }
 }
 }
+
+.ba-form-person-password{
+    position: relative;
+    &__show{
+        position: absolute;
+        display: inline-block;
+        min-width: 25px;
+        top: 7px;
+        right: 3px;
+        cursor: pointer;
+    }
+}

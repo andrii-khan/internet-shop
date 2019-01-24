@@ -8,21 +8,13 @@ title: Easy Food Order
         <div class="columl large-4 medium-6 small-12 ba-order-list-item">
           <h3 class="ba-order-list-item__title">Your order:</h3>
           <div class="ba-order-list-item-products">
-            <span class="ba-order-list-item-result large-9 "
-              >Beef, “German-meat”</span
-            ><br />
+            <span class="ba-order-list-item-result large-9 ">Beef, “German-meat”</span><br />
             <span class="ba-order-list-item-result large-9">
-              Mackerel, “German-meat”</span
-            ><br />
-            <span class="ba-order-list-item-result large-9"
-              >Rice groats, “German-meat”</span
-            ><br />
+              Mackerel, “German-meat”</span><br />
+            <span class="ba-order-list-item-result large-9">Rice groats, “German-meat”</span><br />
             <span class="ba-order-list-item-result large-9">
-              Soya beans, “German-meat”</span
-            ><br />
-            <span class="ba-order-list-item-result large-9"
-              >Spinach, parsley, dill, “German-meat”</span
-            >
+              Soya beans, “German-meat”</span><br />
+            <span class="ba-order-list-item-result large-9">Spinach, parsley, dill, “German-meat”</span>
           </div>
           <!-- /.ba-order-list-item-products -->
           <p class="ba-order-list-item-price">
@@ -43,7 +35,8 @@ title: Easy Food Order
       <div class="row column">
         <h2 class="ba-order-form__title">Ordering</h2>
         <a href="#" class="ba-back">
-          <svg width="7" height="12"><use xlink:href="#icon-arrow" /></svg>
+          <svg width="7" height="12">
+            <use xlink:href="#icon-arrow" /></svg>
           <span>back</span>
         </a>
         <!-- /.ba-back -->
@@ -51,11 +44,11 @@ title: Easy Food Order
           <div class="ba-sign large-4 align-justify">
             <p class="ba-form-title large-6">Sign up</p>
             <label class="ba-sign-check">
-              <input type="radio" name="sign" id="sign" value="no" />
+              <input type="radio" name="sign" id="sign-up" value="no" />
               <span class="ba-sign-check__text">no</span>
             </label>
             <label class="ba-sign-check">
-              <input type="radio" name="sign" id="sign" value="yes" />
+              <input type="radio" name="sign" id="sign-check" value="yes" />
               <span class="ba-sign-check__text">yes</span>
             </label>
           </div>
@@ -68,28 +61,34 @@ title: Easy Food Order
             All fields except comment are required.
           </p>
           <div class="ba-form-person large-3">
-            <input type="text" name="person-name" id="person-name" placeholder="Enter your name" required/>
-            <input   type="text"  name="last-name"  id="last-name"  placeholder="Enter last name"  required />
-            <input  type="number"  maxlength="13"   name="phone"  id="phone"  placeholder="Enter a phone number"  required />
-            <input type="text"  name="email"  id=" email"  placeholder="Enter e-mail" required />
-            <input  type="password"  name="password" min="6" id="password"  placeholder="Enter password" required />
+            <input type="text" name="person-name" id="person-name" placeholder="Enter your name" required />
+            <input type="text" name="last-name" id="last-name" placeholder="Enter last name" required />
+            <input type="number"  name="phone" id="phone" placeholder="Enter a phone number" required />
+            <input type="text" name="email" id="person-email" placeholder="Enter e-mail" required />
+            <div class="ba-form-person-password">
+              <input type="password" name="password" id="myPassword" placeholder="Enter password" required />
+              <div class="ba-form-person-password__show">
+                <img src="{{root}}/assets/img/Vector.png" alt="Show password">
+              </div>
+            </div>
+            <!-- /.ba-form-person__password -->
           </div>
           <!-- /.ba-form-person large-3 -->
           <div class="ba-form-delivery">
             <p class="ba-form-title large-6">Delivery method</p>
             <label class="ba-sign-check">
-              <input type="radio" name="delivery" id="delivery-to" value="delivery-to"  />
+              <input type="radio" name="delivery" id="delivery-to" value="delivery-to" />
               <span class="ba-sign-check__text">Delivery to</span>
             </label>
             <label class="ba-sign-check">
-              <input  type="radio"  name="delivery"  id="delivery-pickup" value="delivery-pickup"  />
+              <input type="radio" name="delivery" id="delivery-pickup" value="delivery-pickup" />
               <span class="ba-sign-check__text">Pickup</span>
             </label>
           </div>
           <!-- /.ba-form-delivery -->
           <div class="ba-form-address">
             <p class="ba-form-title">Delivery address</p>
-            <select required class="large-6 ba-form-address-region"  name="exp-region">
+            <select required class="large-6 ba-form-address-region" name="exp-region">
               <option value="" selected hidden> Select region</option>
               <option value="Poltava">Poltava</option>
               <option value="Kyiv">Kyiv</option>
@@ -101,17 +100,18 @@ title: Easy Food Order
               <option value="Kyiv">Mirgorod</option>
               <option value="Kharkiv">Kremenchuk</option>
             </select>
-            <input type="text" class="large-6" name="address" id="address" placeholder="Enter the street and number" required/>
+            <input type="text" class="large-6" name="address" id="address" placeholder="Enter the street and number"
+              required />
           </div>
           <!-- /.ba-form-address -->
           <div class="ba-form-pay">
             <p class="ba-form-title large-6">Payment method</p>
             <label class="ba-sign-check">
-              <input type="radio" name="payment" id="payment" value="payment"  />
+              <input type="radio" name="payment" id="payment" value="payment" />
               <span class="ba-sign-check__text">Prepayment</span>
             </label>
             <label class="ba-sign-check">
-              <input  type="radio"  name="payment"  id="payment-spot" value="payment-spot"  />
+              <input type="radio" name="payment" id="payment-spot" value="payment-spot" />
               <span class="ba-sign-check__text">Payment on the spot</span>
             </label>
           </div>
@@ -124,15 +124,15 @@ title: Easy Food Order
           </div>
           <!-- /.ba-form-comment -->
           <div class="ba-form-agree">
-                <label>
-                        <input type="checkbox" name="agree" id="agree" value="agree"  />
-                        <span >I have read and agree to the rules</span>
-                      </label>
-            </div>
-            <!-- /.ba-form-agree -->
-            <button formtarget name="_blank" class="large-4 ba-form-send" type="submit"> 
-                    Order
-                </button>
+            <label>
+              <input type="checkbox" name="agree" id="agree" value="agree" required />
+              <span>I have read and agree to the rules</span>
+            </label>
+          </div>
+          <!-- /.ba-form-agree -->
+          <button target name="_blank" class="large-4 ba-form-send" type="submit">
+            Order
+          </button>
         </form>
       </div>
       <!-- /.row -->
