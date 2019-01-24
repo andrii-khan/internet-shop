@@ -876,15 +876,8 @@ function (_Plugin) {
     value: function down($target) {
       var _this2 = this;
 
-      // If having multiple submenus active is disabled, close all the submenus
-      // that are not parents or children of the targeted submenu.
       if (!this.options.multiOpen) {
-        // The "branch" of the targetted submenu, from the component root to
-        // the active submenus nested in it.
-        var $targetBranch = $target.parentsUntil(this.$element).add($target).add($target.find('.is-active')); // All the active submenus that are not in the branch.
-
-        var $othersActiveSubmenus = this.$element.find('.is-active').not($targetBranch);
-        this.up($othersActiveSubmenus);
+        this.up(this.$element.find('.is-active').not($target.parentsUntil(this.$element).add($target)));
       }
 
       $target.addClass('is-active').attr({
@@ -1027,7 +1020,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
 
-var FOUNDATION_VERSION = '6.5.2'; // Global Foundation object
+var FOUNDATION_VERSION = '6.5.1'; // Global Foundation object
 // This is attached to the window, or used as a module for AMD/Browserify
 
 var Foundation = {
@@ -2721,9 +2714,8 @@ function (_Plugin) {
   }, {
     key: "_events",
     value: function _events() {
-      this._linkClickListener = this._handleLinkClick.bind(this);
-      this.$element.on('click.zf.smoothScroll', this._linkClickListener);
-      this.$element.on('click.zf.smoothScroll', 'a[href^="#"]', this._linkClickListener);
+      this.$element.on('click.zf.smoothScroll', this._handleLinkClick);
+      this.$element.on('click.zf.smoothScroll', 'a[href^="#"]', this._handleLinkClick);
     }
     /**
      * Handle the given event to smoothly scroll to the anchor pointed by the event target.
@@ -2754,8 +2746,8 @@ function (_Plugin) {
      * @function
      */
     value: function _destroy() {
-      this.$element.off('click.zf.smoothScroll', this._linkClickListener);
-      this.$element.off('click.zf.smoothScroll', 'a[href^="#"]', this._linkClickListener);
+      this.$element.off('click.zf.smoothScroll', this._handleLinkClick);
+      this.$element.off('click.zf.smoothScroll', 'a[href^="#"]', this._handleLinkClick);
     }
   }], [{
     key: "scrollToLoc",
@@ -4064,6 +4056,9 @@ var Nest = {
 
       if ($sub.length) {
         $item.addClass(hasSubClass);
+        $sub.addClass("submenu ".concat(subMenuClass)).attr({
+          'data-submenu': ''
+        });
 
         if (applyAria) {
           $item.attr({
@@ -4271,7 +4266,7 @@ Triggers.Initializers.addClosemeListener = function (pluginName) {
     if (typeof pluginName === 'string') {
       plugNames.push(pluginName);
     } else if (_typeof(pluginName) === 'object' && typeof pluginName[0] === 'string') {
-      plugNames = plugNames.concat(pluginName);
+      plugNames.concat(pluginName);
     } else {
       console.error('Plugin names must be strings');
     }
@@ -15306,7 +15301,7 @@ foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].p
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\beetrootAcademy\JS\42\interner-shop\src\assets\js\app.js */"./src/assets/js/app.js");
+module.exports = __webpack_require__(/*! /Users/iquach/Documents/beetroot/Выпускная работа/internet-shop/src/assets/js/app.js */"./src/assets/js/app.js");
 
 
 /***/ })
