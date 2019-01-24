@@ -15001,18 +15001,72 @@ function calculate(item) {
 // }
 
 
+var arrayPrice = [];
+var arrayBin = {};
+checkEmptyBin();
+
+function generateBin() {
+  var orderForm = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.order-form__content');
+  var finalPrice = 0;
+  orderForm.text(' ');
+
+  for (var key in arrayBin) {
+    orderForm.append('<div class="order-form__list">' + '<div class="order-form__name">' + key + '</div>' + '<div class="order-form__price">' + arrayBin[key] + '</div>' + '</div>');
+    finalPrice += Number(arrayBin[key].replace("UAH", '')); //  console.log(arrayBin[key].replace("UAH", ''));
+    //  console.log(finalPrice);
+  }
+
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.total-price').text(finalPrice + ' UAH');
+  checkEmptyBin();
+}
+
+function checkEmptyBin() {
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isEmptyObject(arrayBin)) {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.bnt-product').css('opacity', '0');
+  } else {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.bnt-product').css('opacity', '1');
+  }
+}
+
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.product-select input[type=checkbox]').on('change', function () {
-  // console.log($(this));
   var findCalories = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('[name=calories]').val();
   var findPrice = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('[name=price]').val();
-  var findProductName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('.relative').find('label').text();
-  console.log(findCalories, findPrice, findProductName);
-  var orderForm = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.order-form__content'); // var createCal = orderForm.append('<div class="calories">Колличество каллорий</div>')
+  var findProductName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('.relative').find('label').text(); // console.log(findCalories, findPrice, findProductName);
+  // var orderForm = $('.order-form__content');
+  // var orderForm = $('.order-form__list');
+  // var orderFormName = $('.order-form__name');
+  // var orderFormPrice = $('.order-form__price');
+  // var arrayItem = (findProductName + ' ' + findPrice);
+
+  var arrayItemName = findProductName;
+  var arrayItemPrice = findPrice;
 
   if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).prop("checked")) {
-    orderForm.text(findProductName + findPrice).append();
+    // arrayListName.push(arrayItemName);
+    arrayPrice.push(arrayItemPrice);
+    arrayBin[arrayItemName] = arrayItemPrice; // arrayList.push(arrayItem);
+    // console.log(arrayList);
+    // orderForm.text(arrayList);
+    // orderFormName.text(arrayListName);
+    // orderFormPrice.text(arrayListPrice);
+
+    generateBin();
+    console.log(arrayPrice);
   } else {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).removeProp();
+    // var index = arrayList.indexOf(arrayItem);
+    delete arrayBin[arrayItemName];
+    console.log(arrayBin); // var indexName = arrayListName.indexOf(arrayItemName);
+    // var indexPrice = arrayListPrice.indexOf(arrayItemPrice);
+    // arrayList.splice(index, 1);
+    // arrayListName.splice(indexName, 1);
+    // arrayListPrice.splice(indexPrice, 1);
+    // orderForm.text(arrayList);
+    // orderFormName.text(arrayListName);
+    // orderFormPrice.text(arrayListPrice);
+    // console.log(arrayList);
+    // console.log(arrayListName);
+
+    generateBin();
   }
 });
 

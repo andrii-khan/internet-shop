@@ -509,13 +509,21 @@ title: Healthy Balans
                 </div>
                 <div class="column small-12 large-4 large-offset-1">
                     <div class="order-list">
-                        <form action="#" method="POST" class="order-form">
+                        <form action="order.html" method="get" class="order-form">
                             <h2 class="primary">Your order:</h2>
+                            <!-- <p class="order-form__name"></p> -->
+                            <!-- <p class="order-form__price"></p> -->
                             <div class="order-form__content">
-                                
+                                <div class="order-form__list">
+                                    <div class="order-form__name"></div>
+                                    <div class="order-form__price"></div>
+                                </div>
                             </div>
-                            <div class="flex-container align-center">
-                                <button type="submit" class="button bnt-product">PUT IN BAG</button>
+                            <div>
+                                <div class="primary total-amount">Total amount: <span class="total-price"></span></div>
+                                <div class="flex-container align-center">
+                                    <button type="submit" class="button bnt-product">PUT IN BAG</button>
+                                </div>
                             </div>
                         </form>
                     </div>

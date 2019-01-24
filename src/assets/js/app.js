@@ -42,7 +42,6 @@ const countrySelect = {
         prices: 1.1
     }
 }
-
 var numberDays = $("#number-days");
 $(numberDays).on('input', function () {
     numberDays = $(this).val();
@@ -50,14 +49,12 @@ $(numberDays).on('input', function () {
     // multiplyPrices();
     // calculate();
 });
-
 var numberPeople = $("#number-people")
 $(numberPeople).on('input', function () {
     numberPeople = $(this).val();
     // multiplyPrices();
     // calculate(numberPeople);
 });
-
 var counSel = $("[name=producer]");
 $(counSel).on('change', function () {
     var countryInfo = countrySelect[$(this).find(":selected").val()];
@@ -69,13 +66,9 @@ $(counSel).on('change', function () {
     calculate(item);
     // console.log(countryInfo);
 });
-
-
-
 // console.log(productIndex);
-
 $('.product-select input[type=number]').on('input', function (e) {
-   
+    
     calculate($(this));
 });
 
@@ -91,6 +84,7 @@ function calculate(item) {
     item.siblings("[name=calories]").attr('value', calories + " kcal");
 
 }
+
 // function multiplyPrices() {
 //     $("[name=price]").each(function(){
 //         var newPrice = ($(this).val() * numberPeople);
@@ -98,21 +92,91 @@ function calculate(item) {
 //         $(this).val(newPrice);
 //     });
 // }
-
+var arrayPrice = [];
+var arrayBin = {};
+checkEmptyBin()
+function generateBin() {
+    var orderForm = $('.order-form__content');
+    var finalPrice = 0;
+    orderForm.text(' ');
+    for (const key in arrayBin) {
+        
+        orderForm.append(
+            '<div class="order-form__list">' + '<div class="order-form__name">' + key + '</div>'
+            + '<div class="order-form__price">' + arrayBin[key] + '</div>'
+            +
+            '</div>'
+         )
+         finalPrice += Number(arrayBin[key].replace("UAH", ''));
+        //  console.log(arrayBin[key].replace("UAH", ''));
+         
+        //  console.log(finalPrice);
+    }
+    $('.total-price').text(finalPrice + ' UAH');
+    checkEmptyBin();
+}
+function checkEmptyBin(){
+    if($.isEmptyObject(arrayBin)){
+        $('.bnt-product').css('opacity','0');
+    }else{
+        $('.bnt-product').css('opacity','1');
+    }
+}
 $('.product-select input[type=checkbox]').on('change', function () {
-    // console.log($(this));
     var findCalories = $(this).siblings('[name=calories]').val();
     var findPrice = $(this).siblings('[name=price]').val();
     var findProductName = $(this).siblings('.relative').find('label').text();
 
-    console.log(findCalories, findPrice, findProductName);
-    var orderForm = $('.order-form__content');
-    // var createCal = orderForm.append('<div class="calories">Колличество каллорий</div>')
+    // console.log(findCalories, findPrice, findProductName);
+    // var orderForm = $('.order-form__content');
+    // var orderForm = $('.order-form__list');
+
+    // var orderFormName = $('.order-form__name');
+    // var orderFormPrice = $('.order-form__price');
+    
+    // var arrayItem = (findProductName + ' ' + findPrice);
+    var arrayItemName = (findProductName);
+    var arrayItemPrice = (findPrice);
+
 
     if ($(this).prop("checked") ){
-        orderForm.text(findProductName + findPrice).append()
+
+        // arrayListName.push(arrayItemName);
+
+        arrayPrice.push(arrayItemPrice);
+
+        arrayBin[arrayItemName] = arrayItemPrice;
+        
+        // arrayList.push(arrayItem);
+        // console.log(arrayList);
+        // orderForm.text(arrayList);
+        
+        // orderFormName.text(arrayListName);
+        // orderFormPrice.text(arrayListPrice);
+        generateBin();
+        console.log(arrayPrice);
+
     } else {
-        $(this).removeProp()
+        // var index = arrayList.indexOf(arrayItem);
+        delete arrayBin[arrayItemName];
+        console.log(arrayBin);
+        // var indexName = arrayListName.indexOf(arrayItemName);
+        // var indexPrice = arrayListPrice.indexOf(arrayItemPrice);
+
+        // arrayList.splice(index, 1);
+
+        // arrayListName.splice(indexName, 1);
+        // arrayListPrice.splice(indexPrice, 1);
+
+        // orderForm.text(arrayList);
+
+        // orderFormName.text(arrayListName);
+        // orderFormPrice.text(arrayListPrice);
+
+        // console.log(arrayList);
+        // console.log(arrayListName);
+
+        generateBin();
     }
 
  });
