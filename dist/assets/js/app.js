@@ -14959,14 +14959,11 @@ var countrySelect = {
 };
 var numberDays = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#number-days");
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(numberDays).on('input', function () {
-  numberDays = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val(); // console.log(numberDays);
-  // multiplyPrices();
-  // calculate();
+  numberDays = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val();
 });
 var numberPeople = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#number-people");
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(numberPeople).on('input', function () {
-  numberPeople = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val(); // multiplyPrices();
-  // calculate(numberPeople);
+  numberPeople = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).val();
 });
 var counSel = jquery__WEBPACK_IMPORTED_MODULE_0___default()("[name=producer]");
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(counSel).on('change', function () {
@@ -15001,7 +14998,6 @@ function calculate(item) {
 // }
 
 
-var arrayPrice = [];
 var arrayBin = {};
 checkEmptyBin();
 
@@ -15012,12 +15008,14 @@ function generateBin() {
 
   for (var key in arrayBin) {
     orderForm.append('<div class="order-form__list">' + '<div class="order-form__name">' + key + '</div>' + '<div class="order-form__price">' + arrayBin[key] + '</div>' + '</div>');
-    finalPrice += Number(arrayBin[key].replace("UAH", '')); //  console.log(arrayBin[key].replace("UAH", ''));
-    //  console.log(finalPrice);
+    finalPrice += Number(arrayBin[key].replace("UAH", '')); //  console.log(finalPrice);
   }
 
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.total-price').text(finalPrice + ' UAH');
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()('.total-price').text(finalPrice.toFixed(1) + ' UAH');
   checkEmptyBin();
+  var arrayJSON = JSON.stringify(arrayBin);
+  localStorage.setItem('dishList', arrayJSON);
+  localStorage.setItem('price', finalPrice);
 }
 
 function checkEmptyBin() {
@@ -15031,42 +15029,17 @@ function checkEmptyBin() {
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.product-select input[type=checkbox]').on('change', function () {
   var findCalories = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('[name=calories]').val();
   var findPrice = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('[name=price]').val();
-  var findProductName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('.relative').find('label').text(); // console.log(findCalories, findPrice, findProductName);
-  // var orderForm = $('.order-form__content');
-  // var orderForm = $('.order-form__list');
-  // var orderFormName = $('.order-form__name');
-  // var orderFormPrice = $('.order-form__price');
-  // var arrayItem = (findProductName + ' ' + findPrice);
-
+  var findProductName = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings('.relative').find('label').text();
   var arrayItemName = findProductName;
   var arrayItemPrice = findPrice;
 
   if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).prop("checked")) {
-    // arrayListName.push(arrayItemName);
-    arrayPrice.push(arrayItemPrice);
-    arrayBin[arrayItemName] = arrayItemPrice; // arrayList.push(arrayItem);
-    // console.log(arrayList);
-    // orderForm.text(arrayList);
-    // orderFormName.text(arrayListName);
-    // orderFormPrice.text(arrayListPrice);
-
-    generateBin();
-    console.log(arrayPrice);
+    arrayBin[arrayItemName] = arrayItemPrice;
+    generateBin(); // console.log(arrayPrice);
   } else {
-    // var index = arrayList.indexOf(arrayItem);
-    delete arrayBin[arrayItemName];
-    console.log(arrayBin); // var indexName = arrayListName.indexOf(arrayItemName);
-    // var indexPrice = arrayListPrice.indexOf(arrayItemPrice);
-    // arrayList.splice(index, 1);
-    // arrayListName.splice(indexName, 1);
-    // arrayListPrice.splice(indexPrice, 1);
-    // orderForm.text(arrayList);
-    // orderFormName.text(arrayListName);
-    // orderFormPrice.text(arrayListPrice);
-    // console.log(arrayList);
-    // console.log(arrayListName);
+    delete arrayBin[arrayItemName]; // console.log(arrayBin);
 
-    generateBin();
+    generateBin(); // delete localStorage['dishList'];
   }
 });
 
@@ -15186,6 +15159,22 @@ function myPassword() {
 }
 
 showPassword.onclick = myPassword;
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
+  var localResult = JSON.parse(localStorage.getItem('dishList'));
+
+  for (var key in localResult) {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.ba-local').append('<p>' + key + '</p>');
+  }
+
+  var localResultPrice = localStorage.getItem('price');
+
+  if (localResultPrice > 0) {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.ba-local-price').text(localResultPrice + ' UAH');
+  }
+});
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.ba-form-send').on('click', function clearLocal() {
+  localStorage.clear();
+});
 
 /***/ }),
 
