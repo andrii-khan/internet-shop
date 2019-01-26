@@ -18,9 +18,8 @@ import slick from 'slick-carousel/slick/slick.min.js';
 $(document).foundation();
 $('.featured-slider').slick({
   arrows: false,
-  dots: true,
-  // slide: '.featured-slider__item',
-  appendDots: 'featured-slider__dots',
+  // dots: true,
+  // appendDots: 'featured-slider__dots',
   autoplay: true,
   autoplaySpeed: 3000,
 });
@@ -113,9 +112,9 @@ function generateBin() {
 
 function checkEmptyBin() {
   if ($.isEmptyObject(arrayBin)) {
-    $('.bnt-product').css('opacity', '0');
+    $('.bnt-product').css('display', 'none');
   } else {
-    $('.bnt-product').css('opacity', '1');
+    $('.bnt-product').css('display', 'block');
   }
 }
 $('.product-select input[type=checkbox]').on('change', function () {

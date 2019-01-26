@@ -14933,9 +14933,8 @@ window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a; // require('found
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).foundation();
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.featured-slider').slick({
   arrows: false,
-  dots: true,
-  // slide: '.featured-slider__item',
-  appendDots: 'featured-slider__dots',
+  // dots: true,
+  // appendDots: 'featured-slider__dots',
   autoplay: true,
   autoplaySpeed: 3000
 });
@@ -15020,9 +15019,9 @@ function generateBin() {
 
 function checkEmptyBin() {
   if (jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isEmptyObject(arrayBin)) {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.bnt-product').css('opacity', '0');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.bnt-product').css('display', 'none');
   } else {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.bnt-product').css('opacity', '1');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.bnt-product').css('display', 'block');
   }
 }
 
